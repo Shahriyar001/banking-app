@@ -75,11 +75,40 @@ const AuthForm = ({ type }: { type: string }) => {
                     <FormLabel className="form-label">Email</FormLabel>
                     <div className="flex w-full flex-col">
                       <FormControl>
-                        {/* 1.56 hr */}
                         <Input
                           placeholder="Enter your email...."
                           className="input-class"
                           {...field}
+                        />
+                      </FormControl>
+                      <FormMessage className="form-message mt-2"></FormMessage>
+                    </div>
+                  </div>
+                  // <FormItem>
+                  //   <FormLabel>Username</FormLabel>
+                  //   <FormControl>
+                  //     <Input placeholder="shadcn" {...field} />
+                  //   </FormControl>
+                  //   <FormDescription>
+                  //     This is your public display name.
+                  //   </FormDescription>
+                  //   <FormMessage />
+                  // </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <div className="form-item">
+                    <FormLabel className="form-label">Password</FormLabel>
+                    <div className="flex w-full flex-col">
+                      <FormControl>
+                        <Input
+                          placeholder="Enter your password"
+                          className="input-class"
+                          {...field}
+                          type="password"
                         />
                       </FormControl>
                       <FormMessage className="form-message mt-2"></FormMessage>

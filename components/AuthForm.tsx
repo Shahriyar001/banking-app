@@ -18,10 +18,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { ITEMS } from "@/constants";
-
-const formSchema = z.object({
-  email: z.string().email(),
-});
+import CustomInput from "./CustomInput";
 
 const AuthForm = ({ type }: { type: string }) => {
   const [user, setUser] = useState(null);
@@ -84,17 +81,13 @@ const AuthForm = ({ type }: { type: string }) => {
                       <FormMessage className="form-message mt-2"></FormMessage>
                     </div>
                   </div>
-                  // <FormItem>
-                  //   <FormLabel>Username</FormLabel>
-                  //   <FormControl>
-                  //     <Input placeholder="shadcn" {...field} />
-                  //   </FormControl>
-                  //   <FormDescription>
-                  //     This is your public display name.
-                  //   </FormDescription>
-                  //   <FormMessage />
-                  // </FormItem>
                 )}
+              />
+              <CustomInput
+                form={form.control}
+                name="username"
+                label="username"
+                placeholder="Enter your user name"
               />
               <FormField
                 control={form.control}

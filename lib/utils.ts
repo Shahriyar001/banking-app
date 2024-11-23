@@ -198,4 +198,5 @@ export const getTransactionStatus = (date: Date) => {
 export const authformSchema = z.object({
   email: z.string().email(),
   password: z.string().min(8),
+  userName: z.string().min(8),
 });

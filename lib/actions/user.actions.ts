@@ -1,8 +1,23 @@
 "use server";
 
+import { ID } from "node-appwrite";
+import { createAdminClient, createSessionClient } from "../appwrite";
+
 export const signIn = async () => {
   try {
-    //   mutation/database / make fatch
+    const { account } = await createAdminClient();
+
+    await account.create(ID.unique(), email, password, name);
+    const session = await account.createEmailPasswordSession(email, password);
+  
+    cookies().set("my-custom-session", session.secret, {
+      path: "/",
+      httpOnly: true,
+      sameSite: "strict",
+      secure: true,
+    });
+  
+    redirect("/account");
   } catch (error) {
     console.error(error);
   }
@@ -15,4 +30,13 @@ export const signup = async (userData: SignUpParams) => {
   }
 };
 
-// 2.35.14 ok
+
+export async function getLoggedInUser() {
+  try {
+    const { account } = await createSessionClient();
+    return await account.get();
+  } catch (error) {
+    return null;
+  }
+}
+

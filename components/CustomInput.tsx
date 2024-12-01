@@ -35,16 +35,6 @@ const CustomInput = ({ control, name, label, placeholder }: CustomInput) => {
             <FormMessage className="form-message mt-2"></FormMessage>
           </div>
         </div>
-        // <FormItem>
-        //   <FormLabel>Username</FormLabel>
-        //   <FormControl>
-        //     <Input placeholder="shadcn" {...field} />
-        //   </FormControl>
-        //   <FormDescription>
-        //     This is your public display name.
-        //   </FormDescription>
-        //   <FormMessage />
-        // </FormItem>
       )}
     />
   );
